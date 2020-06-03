@@ -5,20 +5,7 @@ import { App } from './pages/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { ACTION_TYPES } from './redux/actionTypes/actionTypes';
-
-
-const INITIAL_STATE = {};
-
-
-const reducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
-    case ACTION_TYPES.INCREMENT:
-      return state 
-    default: 
-    return state
-  };  
-};
+import { reducer } from './redux/reducer/reducer';
 
 const store = createStore(
   reducer,
