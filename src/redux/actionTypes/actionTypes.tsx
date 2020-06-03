@@ -1,0 +1,14 @@
+interface ACTION_TYPES  {
+    INCREMENT: String,
+}
+
+const ACTION_TYPES = {
+    INCREMENT: 'INCREMENT',
+    DECREMENT: 'DECREMENT',
+    RESET: 'RESET',
+    CHANGE_COUNTER: 'CHANGE_COUNTER',
+    ADD_TODO: 'ADD_TODO',
+    MARK_TODO: 'MARK_TODO',
+};
+
+export { ACTION_TYPES };
