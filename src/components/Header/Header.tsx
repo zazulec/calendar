@@ -1,11 +1,12 @@
 import * as React from 'react';
+import { Wrapper } from './styled/StyledHeader';
 
 function Header() {
 
     return (
-        <div>
+        <Wrapper>
             Header
-        </div>
+        </Wrapper>
     )
 };
 
