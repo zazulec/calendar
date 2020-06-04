@@ -15,8 +15,9 @@ function App() {
           <Header />
         </Wrapper>
         <NavBar />
-        <SiteBar />
         <MainBoard />
+        <SiteBar />
+        
       </BackgroundWrapper>
     </div>
   );

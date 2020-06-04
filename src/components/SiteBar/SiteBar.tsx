@@ -1,12 +1,15 @@
 import * as React from 'react';
+import { HourBox } from './styled/StyledHourBox';
 
 function SiteBar() {
-    const array = [1,3,5,6];
-    const a = array.map(e => <div>{x}</div>)
+    // let today = new Date();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let displayhours = hours.map(hour => <HourBox>{hour}</HourBox>)
     return (
         <div>
             SiteBar
-            {a}
+            {displayhours}
         </div>
     )
 };
