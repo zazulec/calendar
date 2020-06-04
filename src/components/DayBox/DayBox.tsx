@@ -1,12 +1,17 @@
-import styled from 'styled-components';
+import * as React from 'react';
+import { StyledDayBox } from './styled/StyledDayBox';
 
-const DayBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 96px;
-    height: 40px;
-    border: 1px solid black;
+function DayBox() {
+
+    let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    let displayDays = days.map((day,id) => (
+    <StyledDayBox key={id}>{day}</StyledDayBox>));
     
-`
-export { DayBox };
+    return (
+        <>
+        {displayDays}
+        </>
+    )
+};
+
+export { DayBox };   

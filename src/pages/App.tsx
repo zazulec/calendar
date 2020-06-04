@@ -17,7 +17,7 @@ function App() {
         <NavBar />
         <MainBoard />
         <SiteBar />
-        
+
       </BackgroundWrapper>
     </div>
   );
