@@ -2,12 +2,12 @@ import { colors } from '../colors/colors';
 
 interface themeLight {
     background: string,
-    body: string,
+    color: string,
 };
 
 const themeLight = {
     background: colors.gray,
-    body: colors.white,
+    color: colors.white,
 };
 
 export { themeLight };

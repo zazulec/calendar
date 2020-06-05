@@ -1,21 +1,18 @@
 import * as React from 'react';
-import { StyledConteiner } from './styled/StyledConteiner';
 import { DayBox } from '../DayBox/DayBox';
-import { Wrapper } from './styled/Wrapper';
-import { HourBox } from '../HourBox/HourBox';
-import { StyledHourBox } from '../HourBox/styled/StyledHourBox';
+import { Wrapper } from './styled/Wrapper/Wrapper';
+import { Table } from '../Table/Table';
+import { Row } from './styled/Row/Row';
 
 
 function MainBoard() {
 
     return (
         <Wrapper>
-            <StyledConteiner>
-                <StyledHourBox>
-                    <HourBox />
-                </StyledHourBox>
+            <Row>
                 <DayBox />
-            </StyledConteiner>
+            </Row>
+            <Table />
         </Wrapper>
 
 
