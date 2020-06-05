@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { StyledDayBox } from './styled/StyledDayBox';
+import { StyledDayBox } from './styled/DayBox.tsx/StyledDayBox';
+import { Wrapper } from './styled/Wrapper/Wrapper';
 
 function DayBox() {
 
@@ -8,9 +9,9 @@ function DayBox() {
     <StyledDayBox key={id}>{day}</StyledDayBox>));
     
     return (
-        <>
+        <Wrapper>
         {displayDays}
-        </>
+        </Wrapper>
     )
 };
 

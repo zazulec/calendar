@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-const Columns = styled.div`
+const Row = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    
-    
-    
-
 `
-export { Columns };
+export { Row };
