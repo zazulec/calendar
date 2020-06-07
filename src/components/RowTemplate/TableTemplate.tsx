@@ -1,12 +1,13 @@
 import React from 'react';
 import { Box } from './styled/Box/Box';
 import { Row } from './styled/Row/Row';
+import { DayBox } from '../DayBox/DayBox';
 
 function TableTemplate() {
 
     const data = {
         hours: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-        box: ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        box: ['', '', '', '', '', '', '']
     };
 
     const rowTemplate = data.box.map((boxData, index) => (
@@ -22,6 +23,7 @@ function TableTemplate() {
     ));
     return(
         <>
+        <DayBox/>
         {displayTable}
         </>
     )
