@@ -11,8 +11,10 @@ function TableTemplate() {
     };
 
     const rowTemplate = data.box.map((boxData, index) => (
-        <Box key={index}>{boxData}</Box>
+        <Box key={index} onClick={()=>window.alert('alert')}>{boxData}</Box>
     ));
+
+    //zrobić na on clicku okno modalne z templatką do wypełnienia 
 
     const displayTable = data.hours.map((hour, index) => (
         <Row>
@@ -23,6 +25,7 @@ function TableTemplate() {
     ));
     return(
         <>
+        {'zrobić na on clicku okno modalne z templatką do wypełnienia '}
         <DayBox/>
         {displayTable}
         </>
