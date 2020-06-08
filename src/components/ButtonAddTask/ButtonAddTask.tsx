@@ -1,7 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
 import Button from '@material-ui/core/Button';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,7 +15,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
- function ButtonAddTask() {
+interface ButtonAddTaskProps {
+  actionToggleModal: () => void,
+};
+
+ function ButtonAddTask(props:ButtonAddTaskProps) {
   const classes = useStyles();
 
   return (
@@ -23,12 +30,17 @@ const useStyles = makeStyles((theme: Theme) =>
         size="small"
         className={classes.button}
         startIcon={<PlaylistAddCheckIcon />}
+        onClick={props.actionToggleModal}
       >
         Add Task
       </Button>
      
     </div>
   );
-}
+};
 
-export { ButtonAddTask };
+const mapDispatchToProps = (dispatch:any) => ({
+  actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_MODAL}),
+});
+
+export default connect(null,mapDispatchToProps)(ButtonAddTask);

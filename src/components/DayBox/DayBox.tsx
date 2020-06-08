@@ -5,8 +5,8 @@ import { Row } from './styled/Row/Row';
 
 function DayBox() {
 
-    const days = ['','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const displayDays = days.map((day,id) => (
+    const days:String[] = ['','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const displayDays:any = days.map((day,id) => (
     <StyledDayBox key={id}>{day}</StyledDayBox>));
     
     return (

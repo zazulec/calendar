@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableTemplate } from '../TableTemplate/TableTemplate';
+import  TableTemplate  from '../TableTemplate/TableTemplate';
 
 
 function Table() {
