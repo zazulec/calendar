@@ -4,11 +4,11 @@ import { Table } from '../Table/Table';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
 
 
-function MainBoard() {
+function MainBoard( ) {
 
     return (
         <Wrapper>
-            <ModalWindow/>
+            <ModalWindow />
             <Table />
         </Wrapper>
 

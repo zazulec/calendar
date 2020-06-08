@@ -7,8 +7,9 @@ const ModalWrapper = styled.div`
   border: 1px solid #888;
   width: 80%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `
 
 export { ModalWrapper };
