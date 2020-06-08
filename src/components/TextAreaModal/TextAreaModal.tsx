@@ -10,9 +10,10 @@ function TextAreaModal() {
     const handleChange = (event: any) => (
         setTextValue(event.target.value))
     console.log(textValue)
-    
+
     return (
         <TextareaAutosize
+            rowsMin={4}
             rowsMax={4}
             aria-label="maximum height"
             placeholder="Enter information text here"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ModalWrapper } from './styled/ModalWrapper/ModalWrapper';
 import { ModalConteiner } from './styled/ModalConteiner/ModalConteiner';
 import { DateAndTimePickers } from '../DateAndTimePickers/DateAndTimePickers';
@@ -7,10 +8,10 @@ import { ButtonClose } from '../ButtonClose/ButtonClose';
 import { ButtonWrapper } from './styled/ButtonWrapper/ButtonWrapper';
 import { TextAreaModal } from '../TextAreaModal/TextAreaModal';
 
-function ModalWindow() {
+function ModalWindow(props) {
 
     return (
-        <ModalConteiner >
+        <ModalConteiner isModalOpen={props.isModalOpen}>
             <ModalWrapper >
                 {'Add your task'}
                 <DateAndTimePickers />
@@ -23,5 +24,8 @@ function ModalWindow() {
         </ModalConteiner>
     )
 };
+const mapStateToProps = state => ({
+    isModalOpen: state.isModalOpen
+})
 
-export { ModalWindow };
+export default connect(mapStateToProps,null)( ModalWindow );
