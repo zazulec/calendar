@@ -17,25 +17,29 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ButtonAddTaskProps {
   actionToggleModal: () => void,
+  onClicked: () => void,
 };
 
  function ButtonAddTask(props:ButtonAddTaskProps) {
   const classes = useStyles();
 
+  const handleClick = () => {
+    props.onClicked();
+    props.actionToggleModal();
+  }
+
   return (
-    <div>
       <Button
         variant="contained"
         color="primary"
         size="small"
         className={classes.button}
         startIcon={<PlaylistAddCheckIcon />}
-        onClick={props.actionToggleModal}
+        onClick={handleClick}
       >
         Add Task
       </Button>
      
-    </div>
   );
 };
 

@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
+interface TextAreaModalProps {
+    handleChange: ()=> string;
+    onTextChange: (props:string)=> void;
+}
 
-
-function TextAreaModal() {
+function TextAreaModal(props: TextAreaModalProps) {
 
     const [textValue, setTextValue] = useState('');
 
-    const handleChange = (event: any) => (
-        setTextValue(event.target.value))
-    console.log(textValue)
+    const handleChange = (event: any) => {
+        setTextValue(event.target.value)
+        props.onTextChange(textValue)
+    }
 
     return (
         <TextareaAutosize

@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { connect, ReactReduxContext } from 'react-redux';
 import { ModalWrapper } from './styled/ModalWrapper/ModalWrapper';
 import { ModalConteiner } from './styled/ModalConteiner/ModalConteiner';
 import { DateAndTimePickers } from '../DateAndTimePickers/DateAndTimePickers';
@@ -10,15 +10,30 @@ import { TextAreaModal } from '../TextAreaModal/TextAreaModal';
 
 function ModalWindow(props) {
 
+    const [text, setText] = useState('');
+    const [date, setDate] = useState('');
+    
+    const handleAddTask = () => {
+        
+    }
+    const handleDateAndTimePickersChange = (date) => {
+        setDate(date);
+        console.log('data', date);
+    };
+    const handleTextAreaModalChange = (text) => {
+        setText(text);
+        console.log("text", text);
+    }
+
     return (
         <ModalConteiner isModalOpen={props.isModalOpen}>
             <ModalWrapper >
                 {'Add your task'}
-                <DateAndTimePickers />
-                <TextAreaModal/>
+                <DateAndTimePickers onDataAndTimeChange={handleDateAndTimePickersChange}/>
+                <TextAreaModal onTextChange={handleTextAreaModalChange}/>
                 <ButtonWrapper>
                     <ButtonClose />
-                    <ButtonAddTask />
+                    <ButtonAddTask onClicked={handleAddTask}/>
                 </ButtonWrapper>
             </ModalWrapper>
         </ModalConteiner>
