@@ -12,18 +12,18 @@ interface TableTemplateProps {
 function TableTemplate(props: TableTemplateProps) {
 
     const data = {
-        hours: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-        box: ['', '', '', '', '', '', '']
+        hours: [...Array(24).keys()].map(i => i + 1),
+        box: ['', '', '', '', '', '', ''],
     };
 
     const rowTemplate = data.box.map((boxData, index) => (
         <Box key={index} onClick={props.actionToggleModal}>{boxData}</Box>
-    ));
+    )); 
+        //row template  do osobnego komponentu
 
-    //zrobić na on clicku okno modalne z templatką do wypełnienia 
 
     const displayTable = data.hours.map((hour, index) => (
-        <Row>
+        <Row key={index}>
             <Box key={index}>{hour}</Box>
             {rowTemplate}
         </Row>
@@ -31,7 +31,6 @@ function TableTemplate(props: TableTemplateProps) {
     ));
     return(
         <>
-        {'zrobić na on clicku okno modalne z templatką do wypełnienia '}
         <DayBox/>
         {displayTable}
         </>

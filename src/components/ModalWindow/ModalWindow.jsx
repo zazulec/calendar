@@ -7,23 +7,35 @@ import  ButtonAddTask  from '../ButtonAddTask/ButtonAddTask';
 import  ButtonClose  from '../ButtonClose/ButtonClose';
 import { ButtonWrapper } from './styled/ButtonWrapper/ButtonWrapper';
 import { TextAreaModal } from '../TextAreaModal/TextAreaModal';
+import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
+
+
 
 function ModalWindow(props) {
 
     const [text, setText] = useState('');
     const [date, setDate] = useState('');
     
-    const handleAddTask = () => {
-        
-    }
+   
+
     const handleDateAndTimePickersChange = (date) => {
         setDate(date);
         console.log('data', date);
     };
+
     const handleTextAreaModalChange = (text) => {
         setText(text);
         console.log("text", text);
-    }
+    };
+
+    const handleAddTask = () => {
+        const taskData = {
+            text: text,
+            date: date,
+        }
+        props.actionSetTask(taskData); 
+        console.log('text z handle add task', taskData);
+    };
 
     return (
         <ModalConteiner isModalOpen={props.isModalOpen}>
@@ -33,7 +45,7 @@ function ModalWindow(props) {
                 <TextAreaModal onTextChange={handleTextAreaModalChange}/>
                 <ButtonWrapper>
                     <ButtonClose />
-                    <ButtonAddTask onClicked={handleAddTask}/>
+                    <ButtonAddTask onClicked={handleAddTask} /> 
                 </ButtonWrapper>
             </ModalWrapper>
         </ModalConteiner>
@@ -41,6 +53,10 @@ function ModalWindow(props) {
 };
 const mapStateToProps = state => ({
     isModalOpen: state.isModalOpen
+});
+
+const mapDispatchToProps = dispatch => ({
+    actionSetTask: (data)=> dispatch({ type: ACTION_TYPES.SET_TASK, value: data})
 })
 
-export default connect(mapStateToProps,null)( ModalWindow );
+export default connect(mapStateToProps, mapDispatchToProps)( ModalWindow );

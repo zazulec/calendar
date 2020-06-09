@@ -26,6 +26,7 @@ interface ButtonAddTaskProps {
   const handleClick = () => {
     props.onClicked();
     props.actionToggleModal();
+    
   }
 
   return (

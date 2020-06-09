@@ -33,6 +33,7 @@ function DateAndTimePickers(props:any) {
         label="Choose Date"
         type="datetime-local"
         defaultValue="2017-05-24T10:30"
+        // defaultValue="2017-05-24T10:30" zrobić funkcję current data
         className={classes.textField}
         onChange={handleChange}
         InputLabelProps={{
