@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 
-const Box = styled.div`
+const Column = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 96px;
-    height: 40px;
-    border: 1px solid black;
-
-    
 `
-export { Box };
+export { Column };

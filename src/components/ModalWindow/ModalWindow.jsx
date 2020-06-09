@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect, ReactReduxContext } from 'react-redux';
+import { connect } from 'react-redux';
 import { ModalWrapper } from './styled/ModalWrapper/ModalWrapper';
 import { ModalConteiner } from './styled/ModalConteiner/ModalConteiner';
 import { DateAndTimePickers } from '../DateAndTimePickers/DateAndTimePickers';
@@ -9,23 +9,17 @@ import { ButtonWrapper } from './styled/ButtonWrapper/ButtonWrapper';
 import { TextAreaModal } from '../TextAreaModal/TextAreaModal';
 import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
 
-
-
 function ModalWindow(props) {
 
     const [text, setText] = useState('');
     const [date, setDate] = useState('');
-    
-   
 
     const handleDateAndTimePickersChange = (date) => {
         setDate(date);
-        console.log('data', date);
     };
 
     const handleTextAreaModalChange = (text) => {
         setText(text);
-        console.log("text", text);
     };
 
     const handleAddTask = () => {
@@ -34,7 +28,6 @@ function ModalWindow(props) {
             date: date,
         }
         props.actionSetTask(taskData); 
-        console.log('text z handle add task', taskData);
     };
 
     return (

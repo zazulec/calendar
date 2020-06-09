@@ -7,8 +7,6 @@ const StyledDayBox = styled.div`
     align-items: center;
     width: 96px;
     height: 40px;
-    border: 1px solid black;
-
-    
+    border: 1px solid black;  
 `
 export { StyledDayBox };

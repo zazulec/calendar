@@ -3,8 +3,6 @@ import { TableTemplate }  from '../TableTemplate/TableTemplate';
 
 
 function Table() {
-    
-   
 
     return (
         <>
