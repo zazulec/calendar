@@ -26,7 +26,7 @@ function DateAndTimePickers(props: any) {
     props.onDataAndTimeChange(dataAndTimeValue);
   };
 
-  const getCurrentDateandHour = () => {
+  const getCurrentDateAndHour = () => {
 
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
@@ -48,7 +48,7 @@ function DateAndTimePickers(props: any) {
         id="datetime-local"
         label="Choose Date"
         type="datetime-local"
-        defaultValue={getCurrentDateandHour()}
+        defaultValue={getCurrentDateAndHour()}
         className={classes.textField}
         onChange={handleChange}
         InputLabelProps={{
