@@ -27,7 +27,7 @@ function ModalWindow(props) {
             text: text,
             date: date,
         }
-        props.actionSetTask(taskData); 
+        props.actionSetTask(taskData);
     };
 
     return (

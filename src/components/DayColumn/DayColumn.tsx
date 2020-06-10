@@ -6,12 +6,12 @@ import TableColumnTemplate from '../TableColumnTemplate/TableColumnTemplate';
 
 
 
-function DayBox() {
+function DayColumn() {
 
     const days:String[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const displayDays:any = days.map((day,id) => (
-    <Column>  
-        <StyledDayBox key={id}>{day}</StyledDayBox>
+    const displayDays:any = days.map((day,index) => (
+    <Column key={index}>  
+        <StyledDayBox key={index}>{day}</StyledDayBox>
         <TableColumnTemplate/>
     </Column> 
     ));
@@ -24,4 +24,4 @@ function DayBox() {
     )
 };
 
-export { DayBox };   
+export { DayColumn };   

@@ -22,7 +22,6 @@ function TextAreaModal(props: TextAreaModalProps) {
             rowsMax={4}
             aria-label="maximum height"
             placeholder="Enter information text here"
-            value={textValue}
             onChange={handleChange}
         />
     );

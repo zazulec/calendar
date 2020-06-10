@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box } from './styled/Box/Box';
 import { Column } from './styled/Column/Column';
-import { DayBox } from '../DayBox/DayBox';
+import { DayColumn } from '../DayColumn/DayColumn';
 import { Row } from './styled/Row/Row';
 
 function TableTemplate() {
 
     const data = {
-        // hours: [...Array(24).keys()].map(i => i + 1),
+        // hours: [...Array(24).keys()].map(_,i => i + 1),
         hours: ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     };
 
@@ -22,7 +22,7 @@ function TableTemplate() {
             <Column>
                 {displayTable}
             </Column>
-            <DayBox />
+            <DayColumn />
         </Row>
 
     )

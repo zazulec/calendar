@@ -5,6 +5,7 @@ import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
 
 interface TableColumnTemplateProps {
     actionToggleModal: () => void,
+    box: string[],
 };
 
 function TableColumnTemplate(props: TableColumnTemplateProps)  {
@@ -12,7 +13,7 @@ function TableColumnTemplate(props: TableColumnTemplateProps)  {
     const data = {
         box: ['','','','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     };
-    const rowTemplate = data.box.map((boxData, index) => (
+    const rowTemplate = props.box.map((boxData, index) => (
         <Box key={index} onClick={props.actionToggleModal}>{boxData}</Box>
     )); 
     return(
@@ -21,9 +22,13 @@ function TableColumnTemplate(props: TableColumnTemplateProps)  {
         </>
     )
 };
-
+const mapStateToProps = (state:any) => {
+    return{
+        box: state.box
+    }
+}
 const mapDispatchToProps = (dispatch:any) => ({
     actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_MODAL}),
   });
 
-export default connect(null,mapDispatchToProps)(TableColumnTemplate);
+export default connect(mapStateToProps,mapDispatchToProps)(TableColumnTemplate);
