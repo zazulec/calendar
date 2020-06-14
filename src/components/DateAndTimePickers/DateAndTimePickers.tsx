@@ -27,7 +27,7 @@ function DateAndTimePickers(props: any) {
   };
 
   const getCurrentDateAndHour = () => {
-
+    
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -38,9 +38,6 @@ function DateAndTimePickers(props: any) {
     
     return currentDate
   };
-
-
-
 
   return (
     <form className={classes.container} noValidate>

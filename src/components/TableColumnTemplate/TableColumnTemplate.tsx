@@ -1,34 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box } from './styled/Box/Box';
 import { connect } from 'react-redux';
 import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
 
 interface TableColumnTemplateProps {
     actionToggleModal: () => void,
-    box: string[],
+    tasks: any,
 };
 
-function TableColumnTemplate(props: TableColumnTemplateProps)  {
+function TableColumnTemplate(props: TableColumnTemplateProps) {
 
     const data = {
-        box: ['','','','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+        box: Array(24).join(".").split("."),
     };
-    const rowTemplate = props.box.map((boxData, index) => (
-        <Box key={index} onClick={props.actionToggleModal}>{boxData}</Box>
-    )); 
-    return(
+
+    useEffect(() => {
+        return (()=> funkcja(props))
+    })
+    console.log('tasks z komponentu', props.tasks  )
+const funkcja = (props:any) => {
+    data.box.splice(1,0,props.tasks )
+    console.log('po',data.box)
+};
+
+
+    const createRowTemplate = () => {
+        const rowTemplate = data.box.map((boxData, index) => (
+            <Box key={index} onClick={props.actionToggleModal}>{boxData}</Box>
+        ));
+            return rowTemplate
+    }
+    return (
         <>
-        {rowTemplate}
+            {createRowTemplate()}
         </>
     )
 };
-const mapStateToProps = (state:any) => {
-    return{
-        box: state.box
+const mapStateToProps = (state: any) => {
+    return {
+        tasks: state.tasks
     }
 }
-const mapDispatchToProps = (dispatch:any) => ({
-    actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_MODAL}),
-  });
+const mapDispatchToProps = (dispatch: any) => ({
+    actionToggleModal: () => dispatch({ type: ACTION_TYPES.TOGGLE_MODAL }),
+});
 
-export default connect(mapStateToProps,mapDispatchToProps)(TableColumnTemplate);
+export default connect(mapStateToProps, mapDispatchToProps)(TableColumnTemplate);

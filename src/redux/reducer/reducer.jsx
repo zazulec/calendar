@@ -4,7 +4,6 @@ const INITIAL_STATE = {
     theme: false,
     isModalOpen: false,
     tasks: [],
-    box: Array(24).join(".").split("."),
 
 };
 

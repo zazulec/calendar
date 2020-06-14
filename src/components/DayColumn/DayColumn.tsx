@@ -5,8 +5,9 @@ import { Row } from './styled/Row/Row';
 import TableColumnTemplate from '../TableColumnTemplate/TableColumnTemplate';
 
 
-
 function DayColumn() {
+
+    
 
     const days:String[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const displayDays:any = days.map((day,index) => (
