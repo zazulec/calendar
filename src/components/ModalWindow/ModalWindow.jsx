@@ -20,6 +20,7 @@ function ModalWindow(props) {
 
     const handleTextAreaModalChange = (text) => {
         setText(text);
+        console.log("text z modal window", text)
     };
 
     const handleAddTask = () => {

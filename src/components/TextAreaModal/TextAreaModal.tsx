@@ -14,6 +14,7 @@ function TextAreaModal(props: TextAreaModalProps) {
     const handleChange = (event: any) => {
         setTextValue(event.target.value)
         props.onTextChange(textValue)
+        console.log("przechwytywany tekst w area",textValue)
     }
 
     return (
@@ -22,7 +23,7 @@ function TextAreaModal(props: TextAreaModalProps) {
             rowsMax={4}
             aria-label="maximum height"
             placeholder="Enter information text here"
-            onChange={handleChange}
+            onKeyUp={handleChange}
         />
     );
 

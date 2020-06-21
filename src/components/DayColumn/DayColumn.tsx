@@ -13,7 +13,7 @@ function DayColumn() {
     const displayDays:any = days.map((day,index) => (
     <Column key={index}>  
         <StyledDayBox key={index}>{day}</StyledDayBox>
-        <TableColumnTemplate/>
+        <TableColumnTemplate dayIndex={index}/>
     </Column> 
     ));
     

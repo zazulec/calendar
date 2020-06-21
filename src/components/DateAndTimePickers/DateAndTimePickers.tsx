@@ -18,19 +18,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function DateAndTimePickers(props: any) {
-  const [dataAndTimeValue, setDataAndTimeValue] = useState('');
-  const classes = useStyles();
-
-  const handleChange = (event: any) => {
-    setDataAndTimeValue(event.target.value);
-    props.onDataAndTimeChange(dataAndTimeValue);
-  };
 
   const getCurrentDateAndHour = () => {
     
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const month = String(today.getMonth() + 1).padStart(2, '0'); 
     const year = today.getFullYear();
     const minutes = today.getMinutes();
     const hour = today.getHours();
@@ -38,6 +31,16 @@ function DateAndTimePickers(props: any) {
     
     return currentDate
   };
+  
+  const [dataAndTimeValue, setDataAndTimeValue] = useState(getCurrentDateAndHour());
+  const classes = useStyles();
+
+  const handleChange = (event: any) => {
+    setDataAndTimeValue(event.target.value);
+    props.onDataAndTimeChange(dataAndTimeValue);
+  };
+
+ 
 
   return (
     <form className={classes.container} noValidate>
