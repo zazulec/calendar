@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { TaskModalWrapper } from './styled/TaskModalWrapper/TaskModalWrapper';
 import { TaskModalConteiner } from './styled/TaskModalConteiner/TaskModalConteiner';
 import  ButtonClose  from '../ButtonClose/ButtonClose';
@@ -11,7 +12,7 @@ interface TaskModalProps {
 function TaskModal(props:TaskModalProps) {
 
     return (
-        <TaskModalConteiner isTaskModalOpen={true}>
+        <TaskModalConteiner isTaskModalOpen={props.isTaskModalOpen}>
              <TaskModalWrapper>
                 <ButtonWrapper>
                     <ButtonClose />
@@ -23,5 +24,8 @@ function TaskModal(props:TaskModalProps) {
     )
 };
 
+const mapStateToProps = (state:any) => ({
+    isTaskModalOpen: state.isTaskModalOpen
+});
 
-export  { TaskModal };
+export default connect(mapStateToProps, null)(TaskModal);

@@ -3,6 +3,7 @@ import { ACTION_TYPES } from '../actionTypes/actionTypes';
 const INITIAL_STATE = {
     theme: false,
     isModalOpen: false,
+    isTaskModalOpen: false,
     tasks: [],
 
 };
