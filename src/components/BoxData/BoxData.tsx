@@ -19,18 +19,18 @@ function BoxData(props: BoxDataProps) {
             const taskHours = taskDate.getHours();
 
             return (
-                taskDay === props.day && taskHours === props.hour 
+                taskDay === props.day && taskHours === props.hour
             );
         });
         return tasksData || [];
     };
 
     const taskToRender = findTasks().map(data => (
-        <div onClick={() => alert('klik')}>
+        <div key={data} onClick={() => alert('klik')}>
             <div>{data.task.text}</div>
-            <div>{data.task.date}</div>
+            {/* <div>{data.task.date}</div> */} 
         </div>
-    ))
+    ));
     return (
         <div>
             {taskToRender}
@@ -41,10 +41,8 @@ function BoxData(props: BoxDataProps) {
 const mapStateToProps = (state: any) => {
     return {
         tasks: state.tasks
-    }
-}
-// const mapDispatchToProps = (dispatch: any) => ({
-//     actionToggleModal: () => dispatch({ type: ACTION_TYPES.TOGGLE_MODAL }),
-// });
+    };
+};
+
 
 export default connect(mapStateToProps, null)(BoxData);

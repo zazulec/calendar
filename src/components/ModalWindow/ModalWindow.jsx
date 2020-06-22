@@ -20,14 +20,13 @@ function ModalWindow(props) {
 
     const handleTextAreaModalChange = (text) => {
         setText(text);
-        console.log("text z modal window", text)
     };
 
     const handleAddTask = () => {
         const taskData = {
             text: text,
             date: date,
-        }
+        };
         props.actionSetTask(taskData);
     };
 

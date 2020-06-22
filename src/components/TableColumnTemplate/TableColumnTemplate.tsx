@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Box } from './styled/Box/Box';
 import { connect } from 'react-redux';
 import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
@@ -23,16 +23,6 @@ function TableColumnTemplate(props: TableColumnTemplateProps) {
     const data = {
         box: Array(24).join(".").split("."),
     };
-
-    useEffect(() => {
-        return (() => funkcja(props))
-    })
-    console.log('tasks z komponentu', props.tasks)
-    const funkcja = (props: any) => {
-        data.box.splice(1, 0, props.tasks)
-        console.log('po', data.box)
-    };
-
 
     const createRowTemplate = () => {
         const rowTemplate = data.box.map((boxData, index) => (
