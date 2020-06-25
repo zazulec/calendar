@@ -26,6 +26,11 @@ const reducer = (state = INITIAL_STATE, action) => {
             return state = {
                 ...state, theme: state.theme ? !state.theme : !state.theme
             };
+            case ACTION_TYPES.TOGGLE_TASK_MODAL:
+                return state = { 
+                    ...state, 
+                    isTaskModalOpen: !state.isTaskModalOpen 
+                };
         default:
             return state
     };

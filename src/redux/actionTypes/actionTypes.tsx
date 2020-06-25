@@ -10,6 +10,7 @@ export const ACTION_TYPES = {
     CHANGE_THEME: 'CHANGE_THEME',
     TOGGLE_MODAL: 'TOGGLE_MODAL',
     SET_TASK: 'SET_TASK',
+    TOGGLE_TASK_MODAL: 'TOGGLE_TASK_MODAL',
 };
 
 export const TOGGLE_MODAL = (isModalOpen: boolean) => {
@@ -21,5 +22,11 @@ export const TOGGLE_MODAL = (isModalOpen: boolean) => {
 export const SET_TASK = (data: any) => {
     return {
         type: ACTION_TYPES.SET_TASK, data
+    }
+};
+
+export const TOGGLE_TASK_MODAL = (isTaskModalOpen: boolean) => {
+    return {
+        type: ACTION_TYPES.TOGGLE_TASK_MODAL, isTaskModalOpen
     }
 };

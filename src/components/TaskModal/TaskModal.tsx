@@ -6,7 +6,7 @@ import  ButtonClose  from '../ButtonClose/ButtonClose';
 import { ButtonWrapper } from './styled/ButtonWrapper/ButtonWrapper';
 
 interface TaskModalProps {
-    isTaskModalOpen: string,
+    isTaskModalOpen?: string,
 }
 
 function TaskModal(props:TaskModalProps) {

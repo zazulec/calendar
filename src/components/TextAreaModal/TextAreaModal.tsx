@@ -14,6 +14,7 @@ function TextAreaModal(props: TextAreaModalProps) {
     const handleChange = (event: any) => {
         setTextValue(event.target.value)
         props.onTextChange(textValue)
+        console.log('textValue', textValue)
     }
 
     return (

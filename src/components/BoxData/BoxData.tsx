@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
+import { ACTION_TYPES } from '../../redux/actionTypes/actionTypes';
 
 interface BoxDataProps {
     day: number,
     hour: number,
     tasks?: any[],
+    actionToggleTaskModal: ()=> void,
 };
 
 function BoxData(props: BoxDataProps) {
@@ -26,7 +27,7 @@ function BoxData(props: BoxDataProps) {
     };
 
     const taskToRender = findTasks().map(data => (
-        <div key={data} onClick={() => alert('klik')}>
+        <div key={data} onClick={props.actionToggleTaskModal}>
             <div>{data.task.text}</div>
             {/* <div>{data.task.date}</div> */} 
         </div>
@@ -45,4 +46,9 @@ const mapStateToProps = (state: any) => {
 };
 
 
-export default connect(mapStateToProps, null)(BoxData);
+const mapDispatchToProps = (dispatch:any) =>({
+    actionToggleTaskModal: () => dispatch({ type: ACTION_TYPES.TOGGLE_TASK_MODAL}),
+}) 
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoxData);

@@ -28,7 +28,7 @@ function TableColumnTemplate(props: TableColumnTemplateProps) {
         const rowTemplate = data.box.map((boxData, index) => (
             <Box
                 key={index}
-               >
+            >
             <BoxData day={getFixedDayIndex(props.dayIndex)} hour={index} />
             </Box>
         ));

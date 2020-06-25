@@ -39,7 +39,7 @@ interface ButtonCloseProps {
 };
 
 const mapDispatchToProps = (dispatch:any) => ({
-  actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_MODAL}),
+  actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_TASK_MODAL}),
 });
 
 export default connect(null,mapDispatchToProps)(ButtonClose);
