@@ -4,9 +4,13 @@ import { TaskModalWrapper } from './styled/TaskModalWrapper/TaskModalWrapper';
 import { TaskModalConteiner } from './styled/TaskModalConteiner/TaskModalConteiner';
 import  ButtonClose  from '../ButtonClose/ButtonClose';
 import { ButtonWrapper } from './styled/ButtonWrapper/ButtonWrapper';
+import ButtonDeleteTask from '../ButtonDeleteTask/ButtonDeleteTask';
+import  DayTasks  from '../DayTasks/DayTasks';
 
 interface TaskModalProps {
     isTaskModalOpen?: string,
+    
+    
 }
 
 function TaskModal(props:TaskModalProps) {
@@ -14,10 +18,10 @@ function TaskModal(props:TaskModalProps) {
     return (
         <TaskModalConteiner isTaskModalOpen={props.isTaskModalOpen}>
              <TaskModalWrapper>
+                 <DayTasks/>
                 <ButtonWrapper>
+                    <ButtonDeleteTask />
                     <ButtonClose />
-                    {/* <ButtonAddTask onClicked={handleAddTask} /> 
-                    !!!!!!zmienić na button delete task */}
                 </ButtonWrapper>
             </TaskModalWrapper>
         </TaskModalConteiner>
