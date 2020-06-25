@@ -16,7 +16,7 @@ const getFixedDayIndex = (dayIndex: number): number => {
         return 0;
     }
     return dayIndex + 1;
-}
+};
 
 function TableColumnTemplate(props: TableColumnTemplateProps) {
 
@@ -28,7 +28,7 @@ function TableColumnTemplate(props: TableColumnTemplateProps) {
         const rowTemplate = data.box.map((boxData, index) => (
             <Box
                 key={index}
-                onClick={props.actionToggleModal}>
+               >
             <BoxData day={getFixedDayIndex(props.dayIndex)} hour={index} />
             </Box>
         ));
