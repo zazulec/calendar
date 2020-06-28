@@ -16,13 +16,18 @@ const useStyles = makeStyles((theme: Theme) =>
 interface ButtonDeleteProps {
     removeTask: (taskToDelete:any) => any,
     taskToDelete: any,
+    actionToggleModal: () => void,
 };
 
  function ButtonClose(props:ButtonDeleteProps) {
   
     const classes = useStyles();
-   
-console.log('delete', props.taskToDelete)
+    
+    function onClickDeleteTaskAndCloseModal() {
+      props.removeTask(props.taskToDelete);
+      props.actionToggleModal();
+    }
+
   return (
     <div>
       <Button
@@ -31,7 +36,7 @@ console.log('delete', props.taskToDelete)
         size="small"
         className={classes.button}
         startIcon={<DeleteIcon />}
-        onClick={() => props.removeTask(props.taskToDelete)}>
+        onClick={onClickDeleteTaskAndCloseModal}>
         Delete
       </Button>
     </div>

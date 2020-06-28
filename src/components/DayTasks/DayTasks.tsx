@@ -2,26 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DayTaskskWrapper } from './styled/DayTaskWrapper/DayTaskWrapper';
 
-// interface DayTasksProps {
-//     data: any,
-// }
+interface DayTasksProps {
+    task?: any,
+    text?: string,
+    date?: string,
+};
 
-function DayTasks(props: any) {
+function DayTasks(props: DayTasksProps) {
+
+
     const displayDayTasks = () => {
 
+        const displayTaskHour = props.task ? props.task.date.slice(11,15): '';
+
         return (
-            <div>
+            <DayTaskskWrapper>
                 {props.task ? props.task.text : ""}
-            </div>
+                {props.task ? displayTaskHour : ""}
+            </DayTaskskWrapper>
         );
     };
 
-    return (
-        <DayTaskskWrapper>
-            {displayDayTasks()}
-            
-        </DayTaskskWrapper>
-    );
+    return ( displayDayTasks() );
 };
 
  const mapStateToProps = (state:any) => ({
