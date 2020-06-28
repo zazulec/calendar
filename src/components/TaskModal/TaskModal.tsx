@@ -8,15 +8,13 @@ import ButtonDeleteTask from '../ButtonDeleteTask/ButtonDeleteTask';
 import  DayTasks  from '../DayTasks/DayTasks';
 
 interface TaskModalProps {
-    isTaskModalOpen?: string,
-    
-    
+    taskModalData?: string,
 }
 
 function TaskModal(props:TaskModalProps) {
 
     return (
-        <TaskModalConteiner isTaskModalOpen={props.isTaskModalOpen}>
+        <TaskModalConteiner isTaskModalOpen={props.taskModalData}>
              <TaskModalWrapper>
                  <DayTasks/>
                 <ButtonWrapper>
@@ -29,7 +27,7 @@ function TaskModal(props:TaskModalProps) {
 };
 
 const mapStateToProps = (state:any) => ({
-    isTaskModalOpen: state.isTaskModalOpen
+    taskModalData: state.taskModalData
 });
 
 export default connect(mapStateToProps, null)(TaskModal);

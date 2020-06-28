@@ -6,32 +6,39 @@ interface BoxDataProps {
     day: number,
     hour: number,
     tasks?: any[],
-    actionToggleTaskModal: ()=> void,
+    actionToggleTaskModal: (data:any)=> void,
+    
 };
 
 function BoxData(props: BoxDataProps) {
 
-    const findTasks = () => {
+    // const [filtredTasks, setFiltredTasks] = useState([]);
+
+   
+    const findTasks:any = () => {
 
         const tasksData = props.tasks && props.tasks.filter((data) => {
-
+           
             const taskDate = new Date(data.task.date);
             const taskDay = taskDate.getDay();
             const taskHours = taskDate.getHours();
-
+            
             return (
                 taskDay === props.day && taskHours === props.hour
+                
             );
         });
-        return tasksData || [];
+        return (tasksData || [] );     
     };
+    
 
-    const taskToRender = findTasks().map(data => (
-        <div key={data} onClick={props.actionToggleTaskModal}>
+    const taskToRender = findTasks().map((data:any) => (
+        <div key={data} onClick={() => props.actionToggleTaskModal(data)}>
             <div>{data.task.text}</div>
-            {/* <div>{data.task.date}</div> */} 
+            {/* <div>{data.task.date}</div>  */}
         </div>
     ));
+    
     return (
         <div>
             {taskToRender}
@@ -47,7 +54,8 @@ const mapStateToProps = (state: any) => {
 
 
 const mapDispatchToProps = (dispatch:any) =>({
-    actionToggleTaskModal: () => dispatch({ type: ACTION_TYPES.TOGGLE_TASK_MODAL}),
+    actionToggleTaskModal: (data:any) => dispatch({ type: ACTION_TYPES.SET_TASK_MODAL_DATA, value: data.task}),
+    
 }) 
 
 

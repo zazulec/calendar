@@ -3,7 +3,7 @@ import { ACTION_TYPES } from '../actionTypes/actionTypes';
 const INITIAL_STATE = {
     theme: false,
     isModalOpen: false,
-    isTaskModalOpen: false,
+    taskModalData: null,
     tasks: [],
 
 };
@@ -26,11 +26,19 @@ const reducer = (state = INITIAL_STATE, action) => {
             return state = {
                 ...state, theme: state.theme ? !state.theme : !state.theme
             };
-            case ACTION_TYPES.TOGGLE_TASK_MODAL:
+            case ACTION_TYPES.SET_TASK_MODAL_DATA:
                 return state = { 
                     ...state, 
-                    isTaskModalOpen: !state.isTaskModalOpen 
-                };
+                    taskModalData: action.value
+                };  
+                case ACTION_TYPES.REMOVE_TASK:
+                    return state = {
+                        ...state,
+                        tasks: state.tasks.filter(task => {
+                            return task.text === action.value.text && task.date === action.value.date
+                            }
+                        )
+                    };
         default:
             return state
     };

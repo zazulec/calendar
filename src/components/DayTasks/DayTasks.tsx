@@ -2,30 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DayTaskskWrapper } from './styled/DayTaskWrapper/DayTaskWrapper';
 
-function DayTasks() {
+// interface DayTasksProps {
+//     data: any,
+// }
 
+function DayTasks(props: any) {
     const displayDayTasks = () => {
-
 
         return (
             <div>
-                {"funckcja jeszcze nic nie robi. Ma pokazywać wszystkie taski na dany dzień"}
+                {props.task ? props.task.text : ""}
             </div>
-            
-        )
-    }
+        );
+    };
 
     return (
         <DayTaskskWrapper>
             {displayDayTasks()}
             
         </DayTaskskWrapper>
-
-    )
+    );
 };
 
  const mapStateToProps = (state:any) => ({
-    tasks: state.tasks
+    task: state.taskModalData
  });
  
 export default connect (mapStateToProps,null)(DayTasks);

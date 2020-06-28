@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ButtonCloseProps {
   
-  actionToggleModal: () => void,
+  actionToggleTaskModal: () => void,
 }
 
  function ButtonClose(props:ButtonCloseProps) {
@@ -29,7 +29,7 @@ interface ButtonCloseProps {
         size="small"
         className={classes.button}
         startIcon={<CancelRoundedIcon />}
-        onClick={props.actionToggleModal}
+        onClick={props.actionToggleTaskModal}
       >
         Close
       </Button>
@@ -39,7 +39,8 @@ interface ButtonCloseProps {
 };
 
 const mapDispatchToProps = (dispatch:any) => ({
-  actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_TASK_MODAL}),
+  actionToggleTaskModal: () => dispatch({type: ACTION_TYPES.SET_TASK_MODAL_DATA}),
+  
 });
 
 export default connect(null,mapDispatchToProps)(ButtonClose);

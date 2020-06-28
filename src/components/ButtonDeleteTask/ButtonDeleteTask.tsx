@@ -14,17 +14,15 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface ButtonDeleteProps {
-    deleteTask?: () => void,
-  
-}
+    removeTask: (taskToDelete:any) => any,
+    taskToDelete: any,
+};
 
  function ButtonClose(props:ButtonDeleteProps) {
   
     const classes = useStyles();
-    const deleteTask = () => {
-        return alert('usunięto Task')
-    };
-
+   
+console.log('delete', props.taskToDelete)
   return (
     <div>
       <Button
@@ -33,17 +31,20 @@ interface ButtonDeleteProps {
         size="small"
         className={classes.button}
         startIcon={<DeleteIcon />}
-        onClick={deleteTask}
-        >
+        onClick={() => props.removeTask(props.taskToDelete)}>
         Delete
       </Button>
-     
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch:any) => ({
-  actionToggleModal: () => dispatch({type: ACTION_TYPES.TOGGLE_TASK_MODAL}),
+const mapStateToProps = (state:any) => ({
+  taskToDelete: state.taskModalData
 });
 
-export default connect(null,mapDispatchToProps)(ButtonClose);
+const mapDispatchToProps = (dispatch:any) => ({
+  actionToggleModal: () => dispatch({type: ACTION_TYPES.SET_TASK_MODAL_DATA}),
+  removeTask: (taskToDelete:any) => dispatch({type: ACTION_TYPES.REMOVE_TASK, value: taskToDelete }),
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(ButtonClose);
